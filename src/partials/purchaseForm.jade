@@ -1,0 +1,81 @@
+.panel.panel-default
+  .panel-heading.
+    Vending Machine
+  .panel-body.form-inline(
+  )
+    .row
+      .col-sm-12
+        .form-group
+          label.
+            Item ID
+          input(
+            type = "number"
+            ng-model = "purchaseCtrl.selectedProductId"
+          )
+
+    .row
+      .col-sm-12
+        button.btn.btn-primary.btn--comfy(
+          ng-click = "purchaseCtrl.select()"
+        ) Select
+
+        button.btn.btn-link.btn--comfy(
+          ng-click = "purchaseCtrl.resetFields()"
+        ) Reset
+    .row
+      .col-sm-12
+        .form-group
+          label.
+            Payment
+          input(
+            ng-model = "purchaseCtrl.payment"
+            type = "text"
+            format="currency"
+            maxlength="4"
+          )
+    .row
+      .col-sm-12
+        button.btn.btn-primary.btn-lg.btn-block.btn--comfyTop(
+          ng-click = "purchaseCtrl.process()"
+          ng-disabled = "!purchaseCtrl.selectedProduct.price \
+          || !purchaseCtrl.selectedProduct.quantity \
+          || purchaseCtrl.success \
+          || purchaseCtrl.selectedProduct.price > purchaseCtrl.payment"
+        ) Pay
+
+  .panel-footer
+    div Your Selection
+      .name(
+        ng-if = "purchaseCtrl.selectedProduct"
+      ).
+        Product:  {{purchaseCtrl.selectedProduct.name}}  
+      .price(
+        ng-if = "purchaseCtrl.selectedProduct"
+      ).
+        Price: {{purchaseCtrl.selectedProduct.price | currency}}
+      .change(
+        ng-if = "purchaseCtrl.change"
+      ).
+        Change: {{purchaseCtrl.change | currency}}
+      .alert.bg-danger(
+        ng-if = "purchaseCtrl.alert"
+      ).
+        {{purchaseCtrl.alert}}
+
+
+
+.panel.panel-default(
+  ng-if = "purchaseCtrl.success"
+)
+  .panel-body
+    p Thank you! Please take your item.
+
+    .dispenser.dispenser__product.btn.btn-danger.btn--comfy(
+      ng-if = "purchaseCtrl.selectedProduct && purchaseCtrl.success && purchaseCtrl.showProduct"
+      ng-click = "purchaseCtrl.pickupProduct()"
+    ) {{purchaseCtrl.selectedProduct.name}}  
+
+    .dispenser.dispenser__change.btn.btn-success.btn--comfy(
+      ng-if = "purchaseCtrl.change && purchaseCtrl.success && purchaseCtrl.showChange "
+      ng-click = "purchaseCtrl.pickupChange()"
+    ) {{purchaseCtrl.change | currency}} 

@@ -1,0 +1,34 @@
+{
+ "items": [
+   {
+    "name": "Pepsi",
+    "price": 0.75,
+    "quantity": 20
+   },
+   {
+    "name": "Fanta",
+    "price": 0.75,
+    "quantity": 10
+   },
+   {
+    "name": "Sprite",
+    "price": 0.75,
+    "quantity": 20
+   },
+   {
+    "name": "Snickers",
+    "price": 1.25,
+    "quantity": 10
+   },
+   {
+    "name": "Twix",
+    "price": 1.00,
+    "quantity": 10
+   },
+   {
+    "name": "Gummy Bears",
+    "price": 1.50,
+    "quantity": 10
+   }
+ ]
+}

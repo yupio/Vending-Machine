@@ -1,0 +1,37 @@
+.product {
+  width: 125px;
+  float:left;
+  height: 90px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #0099CC;
+  color: #003d51;
+  background-color: #cceaf4;
+  margin: 10px;
+}
+
+.productId {
+  background: #19a3d1;
+  color: white;
+  border-radius: 2px;
+  padding: 2px;
+  margin-bottom: 3px;
+}
+
+.outOfStock {
+  color: red;
+}
+
+.productQuantity {
+  padding-top: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+.productPrice {
+  padding-top: 5px;
+  font-weight: normal;
+}

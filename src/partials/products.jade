@@ -1,0 +1,12 @@
+.product(
+  ng-repeat = "item in productsCtrl.items" 
+)
+  .productId {{item.id}}
+  .productName {{item.name}}
+  .productPrice {{item.price | currency}}
+  .productQuantity(
+    ng-if = "item.quantity > 0"
+  ) {{item.quantity}} remaining
+  .outOfStock(
+    ng-if = "item.quantity === 0"
+  ) Out of Stock
